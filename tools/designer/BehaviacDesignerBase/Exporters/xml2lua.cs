@@ -116,6 +116,10 @@ namespace Behaviac.Design.Exporters
             
             // replace "\"" to "\\\""
             sIn = sIn.Replace("\"", "\\\"");
+            
+            // replace "____" to "."
+            sIn = sIn.Replace("____", ".");
+            
             return sIn;
         }
     }
