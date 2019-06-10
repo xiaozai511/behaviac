@@ -114,8 +114,8 @@ namespace Behaviac.Design.Exporters
             //}
             //return sbOut.ToString();
             
-            // replace "\"" to "&quot;"
-            sIn = sIn.Replace("\"", "&quot;");
+            // replace "\"" to "\\\""
+            sIn = sIn.Replace("\"", "\\\"");
             return sIn;
         }
     }
