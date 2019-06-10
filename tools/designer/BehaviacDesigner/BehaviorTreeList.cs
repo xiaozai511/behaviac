@@ -2799,7 +2799,14 @@ namespace Behaviac.Design
             // retieve the correct exporter info
             ExporterInfo exporter = Plugin.Exporters[exporterIndex];
 
-            if (!exporter.HasSettings)
+            if (exporter.ID == "lua")
+            {
+                exportedPath = Workspace.Current.GetExportAbsoluteFolder(exporter.ID);
+                // export the selected behaviors
+                ExportBehavior(false, nodes, exportedPath, false, exporter, ref aborted);
+
+            }
+            else if (!exporter.HasSettings)
             {
                 //if (Plugin.ConcurrentProcessBehaviors)
                 //{
@@ -3045,7 +3052,7 @@ namespace Behaviac.Design
             return ver;
         }
 
-        private const string url_server = "\\\\tencent.com\\tfs\\²¿ÃÅÄ¿Â¼\\IEG»¥¶¯ÓéÀÖÊÂÒµÈº\\»¥¶¯ÓéÀÖÑÐ·¢²¿\\ÒýÇæ×é\\Tag\\Behaviac\\";
+        private const string url_server = "\\\\tencent.com\\tfs\\ï¿½ï¿½ï¿½ï¿½Ä¿Â¼\\IEGï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÒµÈº\\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½ï¿½ï¿½\\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\\Tag\\Behaviac\\";
         private const string urlVersionFile = url_server + "version.txt";
 
         private string TrimVersionString(string verStr)

@@ -229,6 +229,8 @@
     </Compile>
     <Compile Include="Utilities.cs" />
     <Compile Include="Workspace.cs" />
+    <Compile Include="Exporters\xml2lua.cs" />
+    <Compile Include="Exporters\ExporterLua.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
