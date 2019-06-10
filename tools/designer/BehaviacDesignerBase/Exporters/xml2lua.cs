@@ -42,7 +42,7 @@ namespace Behaviac.Design.Exporters
             sbLua.Append(indent);
 
             sbLua.Append("{\n");
-            //if (subIndex == 0)  //表示最外层
+            //if (subIndex == 0)  //卤铆脢戮脳卯脥芒虏茫
             //{
             //    sbLua.Append("{\n");
             //}
@@ -63,7 +63,7 @@ namespace Behaviac.Design.Exporters
                 foreach (XmlAttribute attr in node.Attributes)
                 {
                     sbLua.Append(subIndent);
-                    sbLua.AppendFormat("[\"{0}\"]=\"{1}\",\n", attr.Name, attr.Value);
+                    sbLua.AppendFormat("[\"{0}\"]=\"{1}\",\n", SafeLua(attr.Name), SafeLua(attr.Value));
                 }
             }
 
@@ -84,7 +84,7 @@ namespace Behaviac.Design.Exporters
 
             //  table end
             sbLua.Append(indent);
-            if (subIndex == 0)  //表示最外层
+            if (subIndex == 0)  //卤铆脢戮脳卯脥芒虏茫
             {
                 sbLua.Append("}\n");
             }
@@ -113,6 +113,9 @@ namespace Behaviac.Design.Exporters
             //    sbOut.Append(ch);
             //}
             //return sbOut.ToString();
+            
+            // replace "\"" to "&quot;"
+            sIn = sIn.Replace("\"", "&quot;");
             return sIn;
         }
     }
