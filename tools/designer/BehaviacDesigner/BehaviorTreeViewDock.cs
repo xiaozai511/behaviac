@@ -326,9 +326,9 @@ namespace Behaviac.Design
         {
             try
             {
-                string folder = System.IO.Path.GetDirectoryName(this.BehaviorTreeView.RootNode.Filename);
-                System.Diagnostics.Process.Start(folder);
-
+                //string folder = System.IO.Path.GetDirectoryName(this.BehaviorTreeView.RootNode.Filename);
+                //System.Diagnostics.Process.Start(folder);
+                System.Diagnostics.Process.Start("Explorer.exe", "/select," + this.BehaviorTreeView.RootNode.Filename);
             }
             catch
             {
